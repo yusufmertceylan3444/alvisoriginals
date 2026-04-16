@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | ALVIS ORIGINALS</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body style="padding-top: 50px;">
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="shop.html">Store</a>
+            <div class="nav-dropdown">
+                <a href="#" style="cursor: pointer;">Series</a>
+                <div class="dropdown-content">
+                    <a href="classics.html">Classics</a>
+                    <a href="heritage.html">Heritage</a>
+                    <a href="designer.html">Designer</a>
+                </div>
+            </div>
+            <div class="nav-links nav-links-right">
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="nav-logo"><a href="index.html">
+                <h1>ΛLVIS</h1>
+            </a></div>
+        <div class="nav-actions">
+            <button class="nav-icon-link nav-icon-button" data-panel-toggle="search" aria-label="Search">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="nav-icon-svg">
+                    <circle cx="10.5" cy="10.5" r="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></circle>
+                    <path d="M15.5 15.5L19 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+            </button>
+            <button class="nav-icon-link nav-icon-button" data-panel-toggle="bag" aria-label="Bag">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="nav-icon-svg">
+                    <path d="M7 9h10l-1 10H8L7 9z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M9 9V7a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+                <span class="nav-icon-badge" data-cart-count>0</span>
+            </button>
+            <button class="mobile-nav-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <a href="shop.html">Store</a>
+        <div class="mobile-series-group">
+            <span class="mobile-series-label">Series</span>
+            <a href="classics.html">Classics</a>
+            <a href="heritage.html">Heritage</a>
+            <a href="designer.html">Designer</a>
+        </div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-panel-backdrop" data-panel-backdrop hidden></div>
+    <section class="nav-panel search-panel" data-panel="search" aria-label="Search Panel">
+        <div class="panel-header">
+            <h3>Search alvis.com</h3>
+            <button class="panel-close" data-panel-close aria-label="Close Search">×</button>
+        </div>
+        <input class="search-field" type="text" placeholder="Search products, collections, support">
+        <div class="panel-quick-links">
+            <a href="shop.html">Find all designs</a>
+            <a href="classics.html">Explore Classics</a>
+            <a href="heritage.html">Explore Heritage</a>
+            <a href="designer.html">Explore Designer</a>
+        </div>
+    </section>
+    <section class="nav-panel bag-panel" data-panel="bag" aria-label="Bag Panel">
+        <div class="panel-header">
+            <h3>Your Bag</h3>
+            <button class="panel-close" data-panel-close aria-label="Close Bag">×</button>
+        </div>
+        <div class="bag-groups">
+            
+            <div class="bag-group">
+                <h4>Cart</h4>
+                <ul class="bag-list" data-cart-list></ul>
+            </div>
+        </div>
+        <p class="bag-empty" data-bag-empty>Your bag is empty.</p>
+        <div class="bag-review-section" data-bag-review>
+            <a href="review-bag.html" class="bag-review-btn">Review Bag</a>
+        </div>
+    </section>
+    <section class="apple-section dark fade-trigger" style="padding-bottom: 6rem;">
+        <div class="section-text" style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
+            <p style="color: #86868b; font-weight: 500; font-size: 14px; text-transform: uppercase;">Aesthetic
+                Innovation</p>
+            <h1 style="font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 2rem; margin-top: 1rem;">Designed to push
+                fashion forward.</h1>
+            <p style="color: #a1a1a6; font-size: 1.5rem; max-width: 600px; margin: 0 auto;">Every stitch is an
+                engineering marvel. We source the exact same materials used by the industry's titans to create apparel
+                that isn't just worn, but experienced.</p>
+        </div>
+    </section>
+
+    <section class="container fade-trigger" style="padding: 6rem 0;">
+        <div class="grid-2">
+            <div class="promo-card">
+                <div class="promo-text">
+                    <h3 style="font-size: 2.5rem;">Carbon Neutral.</h3>
+                    <p style="font-size: 1.2rem;">By 2030, our entire footprint.</p>
+                </div>
+                <div class="promo-image">
+                    <img src="images/carbon.jpg"
+                        alt="Nature" style="object-fit: cover; border-radius: 18px; width: 100%;">
+                </div>
+            </div>
+            <div class="promo-card">
+                <div class="promo-text">
+                    <h3 style="font-size: 2.5rem;">Precision Weave.</h3>
+                    <p style="font-size: 1.2rem;">100% Recycled Cotton.</p>
+                </div>
+                <div class="promo-image">
+                    <img src="images/fabric.jpg"
+                        alt="Fabric" style="object-fit: cover; border-radius: 18px; width: 100%;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Universal Fat Footer -->
+    <footer
+        style="background: #f5f5f7; padding: 4rem 0 2rem; margin-top: 4rem; font-size: 12px; color: #86868b; line-height: 1.6;">
+        <div class="container">
+            <div
+                style="border-bottom: 1px solid #d2d2d7; padding-bottom: 2rem; margin-bottom: 2rem; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between;">
+                <div style="max-width: 300px;">
+                    <h3 style="font-size: 14px; color: var(--color-text); margin-bottom: 1rem;">ALVIS ORIGINALS</h3>
+                    <p>Elegance redefined. Shop safely and securely with Alvis Originals. All collections are limited
+                        edition. Free express local delivery available.</p>
+                </div>
+                <div style="display: flex; gap: 4rem;">
+                    <div>
+                        <h4 style="font-size: 12px; color: var(--color-text); margin-bottom: 1rem;">Shop</h4>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <a href="shop.html">All Garments</a>
+                            <a href="classics.html">Classics</a>
+                            <a href="heritage.html">Heritage</a>
+                            <a href="designer.html">Designer</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; color: var(--color-text); margin-bottom: 1rem;">Company</h4>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <a href="about.html">About Us</a>
+                            <a href="contact.html">Contact Support</a>
+                            <a href="privacy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Use</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p>Copyright Â© 2026 ALVIS Inc. All rights reserved.</p>
+                <div style="display: flex; gap: 1.5rem;">
+                    <a href="https://instagram.com/alvisoriginals">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+

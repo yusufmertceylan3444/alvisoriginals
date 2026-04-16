@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALVIS ORIGINALS</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body style="padding-top: 50px;">
+
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="shop.html">Store</a>
+            <div class="nav-dropdown">
+                <a href="#" style="cursor: pointer;">Series</a>
+                <div class="dropdown-content">
+                    <a href="classics.html">Classics</a>
+                    <a href="heritage.html">Heritage</a>
+                    <a href="designer.html">Designer</a>
+                </div>
+            </div>
+            <div class="nav-links nav-links-right">
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="nav-logo"><a href="index.html">
+                <h1>ΛLVIS</h1>
+            </a></div>
+        <div class="nav-actions">
+            <button class="nav-icon-link nav-icon-button" data-panel-toggle="search" aria-label="Search">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="nav-icon-svg">
+                    <circle cx="10.5" cy="10.5" r="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></circle>
+                    <path d="M15.5 15.5L19 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+            </button>
+            <button class="nav-icon-link nav-icon-button" data-panel-toggle="bag" aria-label="Bag">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="nav-icon-svg">
+                    <path d="M7 9h10l-1 10H8L7 9z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M9 9V7a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+                <span class="nav-icon-badge" data-cart-count>0</span>
+            </button>
+            <button class="mobile-nav-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <a href="shop.html">Store</a>
+        <div class="mobile-series-group">
+            <span class="mobile-series-label">Series</span>
+            <a href="classics.html">Classics</a>
+            <a href="heritage.html">Heritage</a>
+            <a href="designer.html">Designer</a>
+        </div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-panel-backdrop" data-panel-backdrop hidden></div>
+    <section class="nav-panel search-panel" data-panel="search" aria-label="Search Panel">
+        <div class="panel-header">
+            <h3>Search alvis.com</h3>
+            <button class="panel-close" data-panel-close aria-label="Close Search">×</button>
+        </div>
+        <input class="search-field" type="text" placeholder="Search products, collections, support">
+        <div class="panel-quick-links">
+            <a href="shop.html">Find all designs</a>
+            <a href="classics.html">Explore Classics</a>
+            <a href="heritage.html">Explore Heritage</a>
+            <a href="designer.html">Explore Designer</a>
+        </div>
+    </section>
+    <section class="nav-panel bag-panel" data-panel="bag" aria-label="Bag Panel">
+        <div class="panel-header">
+            <h3>Your Bag</h3>
+            <button class="panel-close" data-panel-close aria-label="Close Bag">×</button>
+        </div>
+        <div class="bag-groups">
+            
+            <div class="bag-group">
+                <h4>Cart</h4>
+                <ul class="bag-list" data-cart-list></ul>
+            </div>
+        </div>
+        <p class="bag-empty" data-bag-empty>Your bag is empty.</p>
+        <div class="bag-review-section" data-bag-review>
+            <a href="review-bag.html" class="bag-review-btn">Review Bag</a>
+        </div>
+    </section>
+    <!-- Main Hero with Background Video -->
+    <section class="apple-section"
+        style="position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: -50px; padding: 0; text-align: center;">
+        <video id="hero-video" autoplay muted loop playsinline
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;">
+            <source src="images/vid.mp4" type="video/mp4">
+        </video>
+        <!-- Very subtle dark overlay so the video shines clearly while making white text readable -->
+        <div
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.25); z-index: -1;">
+        </div>
+
+        <button id="video-toggle" class="video-control-btn" aria-label="Pause Video">
+            <svg id="icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="white">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+            </svg>
+            <svg id="icon-play" width="16" height="16" viewBox="0 0 24 24" fill="white" style="display:none;">
+                <path d="M8 5v14l11-7z" />
+            </svg>
+        </button>
+
+        <div class="section-text fade-trigger" style="z-index: 1; padding: 2rem;">
+            <h1
+                style="color: #ffffff; letter-spacing: -0.02em; margin-bottom: 0.5rem; text-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+                ALVIS ORIGINALS</h1>
+            <p
+                style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.3rem; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+                Elegance, redefined.</p>
+            <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1.5rem; align-items: center;">
+                <a href="shop.html" class="btn btn-accent"
+                    style="padding: 12px 24px; border: 1px solid rgba(255,255,255,0.1);">Explore Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Width Promo Dark -->
+    <section class="apple-section dark" style="margin: 1rem; border-radius: 28px; padding-bottom: 0;">
+        <div class="section-text fade-trigger">
+            <h2>The Heritage Edition.</h2>
+            <p>A masterpiece in 100-year history.</p>
+            <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1.5rem; align-items: center;">
+                <a href="heritage.html" class="btn">Explore</a>
+                <a href="product.html" class="link-accent" style="font-weight: 500; font-size: 17px;">Buy ></a>
+            </div>
+        </div>
+        <div class="fade-trigger" style="height: 500px;">
+            <img src="images/mainmiddle.jpg"
+                style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+    </section>
+
+    <!-- Grid Layout 50/50 -->
+    <section class="grid-2 fade-trigger">
+        <div class="promo-card">
+            <div class="promo-text">
+                <h3>Designer Series.</h3>
+                <p>Pro level artistry.</p>
+                <div style="display: flex; justify-content: center; gap: 1rem; align-items: center;">
+                    <a href="designer.html" class="btn btn-accent">Buy</a>
+                    <a href="designer.html" class="link-accent">Learn more ></a>
+                </div>
+            </div>
+            <div class="promo-image">
+                <img src="images/designerseries.jpg"
+                    style="border-radius: 12px; object-fit: cover;">
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <div class="promo-text">
+                <h3>Classics.</h3>
+                <p>Essential everyday.</p>
+                <div style="display: flex; justify-content: center; gap: 1rem; align-items: center;">
+                    <a href="classics.html" class="btn btn-accent">Buy</a>
+                    <a href="classics.html" class="link-accent">Learn more ></a>
+                </div>
+            </div>
+            <div class="promo-image">
+                <img src="images/classicsseries.jpg"
+                    style="border-radius: 12px; object-fit: cover;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Universal Fat Footer -->
+    <footer
+        style="background: #f5f5f7; padding: 4rem 0 2rem; margin-top: 4rem; font-size: 12px; color: #86868b; line-height: 1.6;">
+        <div class="container">
+            <div
+                style="border-bottom: 1px solid #d2d2d7; padding-bottom: 2rem; margin-bottom: 2rem; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between;">
+                <div style="max-width: 300px;">
+                    <h3 style="font-size: 14px; color: var(--color-text); margin-bottom: 1rem;">ALVIS ORIGINALS</h3>
+                    <p>Elegance redefined. Shop safely and securely with Alvis Originals. All collections are
+                        limited
+                        edition. Free express local delivery available.</p>
+                </div>
+                <div style="display: flex; gap: 4rem;">
+                    <div>
+                        <h4 style="font-size: 12px; color: var(--color-text); margin-bottom: 1rem;">Shop</h4>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <a href="shop.html">All Garments</a>
+                            <a href="classics.html">Classics</a>
+                            <a href="heritage.html">Heritage</a>
+                            <a href="designer.html">Designer</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; color: var(--color-text); margin-bottom: 1rem;">Company</h4>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <a href="about.html">About Us</a>
+                            <a href="contact.html">Contact Support</a>
+                            <a href="privacy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Use</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p>Copyright Â© 2026 ALVIS Inc. All rights reserved.</p>
+                <div style="display: flex; gap: 1.5rem;">
+                    <a href="https://instagram.com/alvisoriginals">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>

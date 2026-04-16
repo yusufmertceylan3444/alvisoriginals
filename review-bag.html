@@ -1,0 +1,582 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Your Bag | ALVIS ORIGINALS</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <style>
+        body {
+            padding-top: 50px;
+            background-color: #f5f5f7;
+        }
+
+        .bag-container {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .bag-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .bag-header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .bag-header p {
+            color: var(--color-muted);
+            font-size: 1.1rem;
+        }
+
+        .bag-content {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .bag-items {
+            background: white;
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .bag-item {
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--color-border);
+            align-items: center;
+        }
+
+        .bag-item:last-child {
+            border-bottom: none;
+        }
+
+        .bag-item-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            object-fit: cover;
+            background-color: var(--color-bg-alt);
+        }
+
+        .bag-item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .bag-item-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--color-text);
+        }
+
+        .bag-item-price {
+            font-size: 1rem;
+            color: var(--color-muted);
+        }
+
+        .bag-item-stock {
+            font-size: 0.9rem;
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        .bag-item-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: flex-end;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 0.25rem;
+        }
+
+        .quantity-btn {
+            width: 28px;
+            height: 28px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s ease;
+        }
+
+        .quantity-btn:hover {
+            background-color: var(--color-bg-alt);
+        }
+
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            border: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .bag-item-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-remove, .btn-save {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--color-border);
+            background: white;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-remove:hover {
+            background-color: rgba(255, 0, 0, 0.05);
+            border-color: rgba(255, 0, 0, 0.2);
+        }
+
+        .btn-save:hover {
+            background-color: var(--color-bg-alt);
+        }
+
+        .bag-summary {
+            background: white;
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 80px;
+        }
+
+        .summary-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+            padding-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .summary-label {
+            color: var(--color-text);
+        }
+
+        .summary-value {
+            font-weight: 500;
+        }
+
+        .checkout-buttons {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn-checkout {
+            background: var(--color-brand);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-checkout:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        .btn-checkout-secondary {
+            background: transparent;
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-checkout-secondary:hover {
+            background-color: var(--color-bg-alt);
+        }
+
+        .apple-card-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--color-bg-alt);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--color-muted);
+        }
+
+        .empty-bag {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .empty-bag h2 {
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .empty-bag p {
+            color: var(--color-muted);
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 968px) {
+            .bag-content {
+                grid-template-columns: 1fr;
+            }
+
+            .bag-summary {
+                position: static;
+                order: -1;
+            }
+
+            .bag-item {
+                grid-template-columns: 80px 1fr;
+                gap: 1rem;
+            }
+
+            .bag-item-image {
+                width: 80px;
+                height: 80px;
+            }
+
+            .bag-item-actions {
+                grid-column: 1 / -1;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .bag-container {
+                padding: 1rem 0.5rem;
+            }
+
+            .bag-items {
+                padding: 1rem;
+            }
+
+            .bag-summary {
+                padding: 1rem;
+            }
+
+            .bag-item {
+                padding: 1rem 0;
+            }
+
+            .bag-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="shop.html">Store</a>
+            <div class="nav-dropdown">
+                <a href="#" style="cursor: pointer;">Series</a>
+                <div class="dropdown-content">
+                    <a href="classics.html">Classics</a>
+                    <a href="heritage.html">Heritage</a>
+                    <a href="designer.html">Designer</a>
+                </div>
+            </div>
+            <div class="nav-links nav-links-right">
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="nav-logo"><a href="index.html">
+                <h1>ΛLVIS</h1>
+            </a></div>
+        <div class="nav-actions">
+            <button class="nav-icon-link nav-icon-button" data-panel-toggle="search" aria-label="Search">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="nav-icon-svg">
+                    <circle cx="10.5" cy="10.5" r="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></circle>
+                    <path d="M15.5 15.5L19 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+            </button>
+            <button class="nav-icon-link nav-icon-button" data-panel-toggle="bag" aria-label="Bag">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="nav-icon-svg">
+                    <path d="M7 9h10l-1 10H8L7 9z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M9 9V7a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+                <span class="nav-icon-badge" data-cart-count>0</span>
+            </button>
+            <button class="mobile-nav-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <a href="shop.html">Store</a>
+        <div class="mobile-series-group">
+            <span class="mobile-series-label">Series</span>
+            <a href="classics.html">Classics</a>
+            <a href="heritage.html">Heritage</a>
+            <a href="designer.html">Designer</a>
+        </div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="nav-panel-backdrop" data-panel-backdrop hidden></div>
+    <section class="nav-panel search-panel" data-panel="search" aria-label="Search Panel">
+        <div class="panel-header">
+            <h3>Search alvis.com</h3>
+            <button class="panel-close" data-panel-close aria-label="Close Search">?</button>
+        </div>
+        <input class="search-field" type="text" placeholder="Search products, collections, support">
+        <div class="panel-quick-links">
+            <a href="shop.html">Find all designs</a>
+            <a href="classics.html">Explore Classics</a>
+            <a href="heritage.html">Explore Heritage</a>
+            <a href="designer.html">Explore Designer</a>
+        </div>
+    </section>
+    <section class="nav-panel bag-panel" data-panel="bag" aria-label="Bag Panel">
+        <div class="panel-header">
+            <h3>Your Bag</h3>
+            <button class="panel-close" data-panel-close aria-label="Close Bag">?</button>
+        </div>
+        <div class="bag-groups">
+            
+            <div class="bag-group">
+                <h4>Cart</h4>
+                <ul class="bag-list" data-cart-list></ul>
+            </div>
+        </div>
+        <p class="bag-empty" data-bag-empty>Your bag is empty.</p>
+        <div class="bag-review-section" data-bag-review>
+            <a href="review-bag.html" class="bag-review-btn">Review Bag</a>
+        </div>
+    </section>
+
+    <div class="bag-container">
+        <div class="bag-header">
+            <h1>Review Your Bag</h1>
+            <p>Review your items before checkout</p>
+        </div>
+
+        <div id="bag-content">
+            <!-- Bag content will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const storageKeys = {
+                cart: 'alvis-cart'
+            };
+
+            const readState = (key) => {
+                try {
+                    const value = localStorage.getItem(key);
+                    return value ? JSON.parse(value) : [];
+                } catch (_error) {
+                    return [];
+                }
+            };
+
+            let cart = readState(storageKeys.cart);
+            const bagContent = document.getElementById('bag-content');
+
+            const formatPrice = (price) => {
+                return price;
+            };
+
+            const calculateSubtotal = () => {
+                return cart.reduce((total, item) => {
+                    const price = parseFloat(item.price.replace(/[^0-9.]/g, ''));
+                    return total + (price * (item.quantity || 1));
+                }, 0);
+            };
+
+            const renderBagItem = (item, index) => `
+                <div class="bag-item" data-item-index="${index}">
+                    <img src="${item.image}" alt="${item.name}" class="bag-item-image">
+                    <div class="bag-item-details">
+                        <h3 class="bag-item-name">${item.name}</h3>
+                        <p class="bag-item-price">${formatPrice(item.price)}</p>
+                        <p class="bag-item-stock">In stock and ready to ship</p>
+                    </div>
+                    <div class="bag-item-actions">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
+                            <input type="number" class="quantity-input" value="${item.quantity || 1}" min="1" max="10" readonly>
+                            <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                        </div>
+                        <div class="bag-item-buttons">
+                            <button class="btn-save" onclick="saveForLater(${index})">Save for later</button>
+                            <button class="btn-remove" onclick="removeItem(${index})">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const renderBagSummary = () => {
+                const subtotal = calculateSubtotal();
+                const shipping = 0;
+                const tax = subtotal * 0.08; // 8% tax
+                const total = subtotal + shipping + tax;
+
+                return `
+                    <div class="bag-summary">
+                        <h2 class="summary-title">Order Summary</h2>
+                        <div class="summary-row">
+                            <span class="summary-label">Subtotal</span>
+                            <span class="summary-value">$${subtotal.toFixed(2)}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Shipping</span>
+                            <span class="summary-value">${shipping === 0 ? 'FREE' : '$' + shipping.toFixed(2)}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Total</span>
+                            <span class="summary-value">$${total.toFixed(2)}</span>
+                        </div>
+                        <div class="checkout-buttons">
+                            <button class="btn-checkout" onclick="proceedToCheckout()">Check Out</button>
+                        </div>
+                    </div>
+                `;
+            };
+
+            const renderEmptyBag = () => `
+                <div class="empty-bag">
+                    <h2>Your bag is empty</h2>
+                    <p>Looks like you haven't added any items yet. Start shopping to fill your bag!</p>
+                    <a href="shop.html" class="btn btn-accent">Continue Shopping</a>
+                </div>
+            `;
+
+            const renderBag = () => {
+                if (cart.length === 0) {
+                    bagContent.innerHTML = renderEmptyBag();
+                    return;
+                }
+
+                const itemsHTML = cart.map((item, index) => renderBagItem(item, index)).join('');
+                const summaryHTML = renderBagSummary();
+
+                bagContent.innerHTML = `
+                    <div class="bag-content">
+                        <div class="bag-items">
+                            ${itemsHTML}
+                        </div>
+                        ${summaryHTML}
+                    </div>
+                `;
+            };
+
+            window.updateQuantity = (index, change) => {
+                const item = cart[index];
+                const newQuantity = (item.quantity || 1) + change;
+                if (newQuantity >= 1 && newQuantity <= 10) {
+                    item.quantity = newQuantity;
+                    localStorage.setItem(storageKeys.cart, JSON.stringify(cart));
+                    renderBag();
+                }
+            };
+
+            window.removeItem = (index) => {
+                cart.splice(index, 1);
+                localStorage.setItem(storageKeys.cart, JSON.stringify(cart));
+                renderBag();
+                
+                // Update cart badge
+                const cartBadge = document.querySelector('[data-cart-count]');
+                if (cartBadge) {
+                    cartBadge.textContent = String(cart.length);
+                    cartBadge.classList.toggle('has-items', cart.length > 0);
+                }
+            };
+
+            window.saveForLater = (index) => {
+                // Move item to favorites
+                const item = cart[index];
+                const favorites = readState('alvis-favorites');
+                favorites.push(item);
+                localStorage.setItem('alvis-favorites', JSON.stringify(favorites));
+                
+                // Remove from cart
+                cart.splice(index, 1);
+                localStorage.setItem(storageKeys.cart, JSON.stringify(cart));
+                renderBag();
+                
+                // Update cart badge
+                const cartBadge = document.querySelector('[data-cart-count]');
+                if (cartBadge) {
+                    cartBadge.textContent = String(cart.length);
+                    cartBadge.classList.toggle('has-items', cart.length > 0);
+                }
+            };
+
+            window.proceedToCheckout = () => {
+                alert('Proceeding to checkout...');
+                // Implement checkout logic here
+            };
+
+            renderBag();
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
